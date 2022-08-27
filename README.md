@@ -13,7 +13,7 @@ previous attempt:
 * trying a bare project on printed pcb,runs ok but need some improvement.
 * using 24v toroidal transformer, not stable sometimes the mcu get stuck.
 * try hookup oled display sh1106 using u8x8 for minimum using memory space.
-* mistake when using 8mhz 3.3v promini cause a really slow respond.
+* mistake when using 8mhz 3.3v promini causing a really slow respond.
 * change the toroidal to smps , very recommended.
 
 ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.1) 2021.
