@@ -9,6 +9,13 @@ This Project is Upgrade Version from Original by alexander & MakerBR
 https://www.hackster.io/makerbr555/diy-smd-rework-station-28b6f5
 https://create.arduino.cc/projecthub/sfrwmaker/soldering-iron-controller-for-hakko-907-v-2-fc75d7
 
+previous attempt:
+* trying a bare project on printed pcb,runs ok but need some improvement.
+* using 24v toroidal transformer, not stable sometimes the mcu get stuck.
+* try hookup oled display sh1106 using u8x8 for minimum using memory space.
+* mistake when using 8mhz 3.3v promini cause a really slow respond.
+* change the toroidal to smps , very recommended.
+
 ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.1) 2021.
 * change component to SMD as possible
 * SH1106 Oled 1.3" Used For Display
