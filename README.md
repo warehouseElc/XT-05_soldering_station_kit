@@ -9,6 +9,10 @@ This Project is Upgrade Version from Original by alexander & MakerBR
 https://www.hackster.io/makerbr555/diy-smd-rework-station-28b6f5
 https://create.arduino.cc/projecthub/sfrwmaker/soldering-iron-controller-for-hakko-907-v-2-fc75d7
 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/assemble.JPG" width="720" title="hover text">
+</p> 
+
 previous attempt:
 * trying a bare project on printed pcb,runs ok but need some improvement.
 * using 24v toroidal transformer, not stable sometimes the mcu get stuck.
@@ -25,7 +29,10 @@ ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.0) 2021.
 * Fan 24/12volt select on board
 * Custom Front Panel for operated just only 1 encoder, I/O via IDC Socket
 
-! [alt text] (https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/Board%20v.40%20(Front).JPG?raw=true)
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/Board%20v.40%20(Front).JPG" width="480" title="hover text">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/Board%20v.40%20(Back).JPG" width="480" alt="accessibility text">
+</p> 
 
 on progress at 2022...
 * add one controller for 200w Hot Plate Reflow based on hotair station. 
@@ -33,5 +40,5 @@ on progress at 2022...
 * bridging the chinese GVM c210 controller to the front panel.
 * put all board in 1U amp/server case.
 
-first test.
+first test of Board v3.0
 https://www.youtube.com/watch?v=hSPyxu3pc1E
