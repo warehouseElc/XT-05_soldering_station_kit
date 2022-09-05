@@ -16,7 +16,7 @@ previous attempt:
 * mistake when using 8mhz 3.3v promini causing a really slow respond.
 * change the toroidal to smps , very recommended.
 
-ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.1) 2021.
+ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.0) 2021.
 * change component to SMD as possible
 * SH1106 Oled 1.3" Used For Display
 * Removing class PIDscreen for Hot Air to free some memory
@@ -24,6 +24,8 @@ ChangeLog : Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.1) 2021.
 * thermocouple / Thermoresistor Select on board
 * Fan 24/12volt select on board
 * Custom Front Panel for operated just only 1 encoder, I/O via IDC Socket
+
+! [alt text] (https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/Board%20v.40%20(Front).JPG?raw=true)
 
 on progress at 2022...
 * add one controller for 200w Hot Plate Reflow based on hotair station. 
