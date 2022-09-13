@@ -1,4 +1,4 @@
-// Pre-Heater Reflow Plate controller modded by Warehouse_elc
+// Pre-Heater Reflow Plate 200w controller modded by Warehouse_elc
 // Released Aug 26, 2022
 // Firmware Version 1.0 (atMega328p 5v 16mhz)
 // Board Version 4.1
@@ -1740,7 +1740,7 @@ void loop() {
     }
 
     SCREEN* nxt = pCurrentScreen->reedSwitch(reedSwitch.status());
-      if (nxt != pCurrentScreen->reedSwitch(0)) {
+      if (nxt != pCurrentScreen->reedSwitch(0)) {                              // Thermal Fuse for extra protection;          
       nxt = &errScr;
       if (nxt != pCurrentScreen) {
         pCurrentScreen = nxt;
