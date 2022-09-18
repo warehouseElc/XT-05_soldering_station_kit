@@ -42,3 +42,6 @@ on progress at 2022...
 
 first test of Board v3.0
 https://www.youtube.com/watch?v=hSPyxu3pc1E
+
+first test of Board v4.0 (New Firmware)
+https://youtu.be/PgkWCMdGw-8
