@@ -32,7 +32,7 @@ const int upiPin =  A0;
 const int dwiPin =  A3; 
 // simulated output
 const int upoPin =  A1; 
-const int dwoPin =  A2; 
+const int dwoPin =  A2;
 
 // variables will change:
 int i1State = 0;         // variable for reading the pushbutton status
