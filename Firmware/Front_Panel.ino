@@ -33,6 +33,16 @@ const int dwiPin =  A3;
 // simulated output
 const int upoPin =  A1; 
 const int dwoPin =  A2;
+// ac voltage measurements 
+double sensorValue1 = 0;
+double sensorValue2 = 0;
+int crosscount = 0;
+int climb_flag = 0;
+int val[100];
+int max_v = 0;
+double VmaxD = 0;
+double VeffD = 0;
+double Veff = 0;
 
 // variables will change:
 int i1State = 0;         // variable for reading the pushbutton status
@@ -268,4 +278,47 @@ void loop() {
     display.display();
     digitalWrite(o6Pin, LOW);             // turn OFF Output 6:
    }
+}
+
+void vac() {
+
+  for ( int i = 0; i < 100; i++ ) {
+    sensorValue1 = analogRead(A6);
+    if (analogRead(A6) > 511) {
+      val[i] = sensorValue1;
+    }
+    else {
+      val[i] = 0;
+    }
+    delay(1);
+  }
+
+  max_v = 0;
+
+  for ( int i = 0; i < 100; i++ )
+  {
+    if ( val[i] > max_v )
+    {
+      max_v = val[i];
+    }
+    val[i] = 0;
+  }
+  if (max_v != 0) {
+
+
+    VmaxD = max_v;
+    VeffD = VmaxD / sqrt(2);
+    Veff = (((VeffD - 420.76) / -90.24) * -210.2) + 210.2;
+  }
+  else {
+    Veff = 0;
+  }
+  display.clearDisplay;
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setCursor(45,0);
+  display.println(veff);
+  VmaxD = 0;
+
+  delay(100);
 }
