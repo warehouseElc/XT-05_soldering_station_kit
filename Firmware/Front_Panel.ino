@@ -4,7 +4,6 @@ https://wokwi.com/projects/350487167572640339
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-
 #include <Fonts/FreeSansBold9pt7b.h>
 #include <Fonts/FreeMono12pt7b.h>
 
@@ -16,7 +15,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #if (SSD1306_LCDHEIGHT != 32)
 #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
-
+// clock
 int h = 0;
 int m = 0;
 int s = 0;
@@ -45,7 +44,7 @@ const int dwiPin =  A6;
 const int upoPin =  A1; 
 const int dwoPin =  A2;
 const int stbyPin =  A3;
-//Buzzer
+// Buzzer
 const byte buzzerPIN = A0;  
 bool buzzerFlag = false;
 bool buzzerFlag1 = false;
@@ -56,8 +55,8 @@ bool buzzerFlag5 = false;
 bool buzzerFlag6 = false;
 bool buzzerFlag8 = true;
 bool buzzerFlag9 = false;
-// variables will change:
-int i1State = 0;         // variable for reading the pushbutton status
+// variables will change: for reading the pushbutton status
+int i1State = 0;         
 int i2State = 0;         
 int i3State = 0;         
 int i4State = 0;         
@@ -72,7 +71,7 @@ int state6 = 0, Loadstate6=0;
 void setup() {
   // initialize
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
-    // Welcome display 
+  // Welcome display 
   display.fillScreen(WHITE);
   display.setFont(&FreeSansBold9pt7b);
   display.setTextSize(1);
@@ -84,9 +83,8 @@ void setup() {
   display.setTextColor(BLACK);
   display.setCursor(1,23);
   display.println("SOLDERING STATION KIT");
-
   display.display();
-
+  // initialize pin ouput:
   pinMode(o1Pin, OUTPUT);
   pinMode(o2Pin, OUTPUT);
   pinMode(o3Pin, OUTPUT);
@@ -215,7 +213,6 @@ void loop() {
   i6State = digitalRead(i6Pin);
   upState = analogRead(A7) < 100 ? 0 : 1;
   dwState = analogRead(A6) < 100 ? 0 : 1;
-  
   // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
   if (i1State == HIGH) {                                   // turn Output 1:
   display.fillScreen(BLACK);
@@ -443,7 +440,7 @@ if (buzzerFlag5 == false ) {
         }
  
   
-  if (dwState == HIGH) {                                 // turn down
+  if (dwState == HIGH) {                                        // turn down
     digitalWrite(dwoPin, HIGH);
     delay(5);
     digitalWrite(upoPin, HIGH);
@@ -471,11 +468,11 @@ if (buzzerFlag5 == false ) {
         display.display();
  }
 
- lock:
+ lock:                                                                    // loop here when locking
   upState = analogRead(A7) < 100 ? 0 : 1;
   dwState = analogRead(A6) < 100 ? 0 : 1;
 
-if (state == 0 && upState == HIGH && dwState == HIGH) {  
+if (state == 0 && upState == HIGH && dwState == HIGH) {                   // simulated 2 button
     digitalWrite(o1Pin, LOW);
     digitalWrite(o2Pin, LOW);
     digitalWrite(o3Pin, LOW);
@@ -489,7 +486,7 @@ if (state == 0 && upState == HIGH && dwState == HIGH) {
     state = 1;
     Loadstate=!Loadstate;
   }
-  if (state == 1 && upState == LOW && dwState == LOW) {  
+  if (state == 1 && upState == LOW && dwState == LOW) {                   
     state = 0;
   // Welcome display 
   display.fillScreen(BLACK);
