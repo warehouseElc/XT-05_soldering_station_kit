@@ -1,12 +1,12 @@
 https://wokwi.com/projects/350487167572640339
 
-
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-//#include <Fonts/FreeSansBold9pt7b.h>
+#include <Fonts/FreeSansBold9pt7b.h>
+#include <Fonts/FreeMono12pt7b.h>
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
@@ -39,8 +39,8 @@ const int o4Pin =  8;
 const int o5Pin =  9; 
 const int o6Pin =  10; 
 // input button
-const int upiPin =  A6; 
-const int dwiPin =  A7; 
+const int upiPin =  A7; 
+const int dwiPin =  A6; 
 // simulated output
 const int upoPin =  A1; 
 const int dwoPin =  A2;
@@ -74,15 +74,17 @@ void setup() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
     // Welcome display 
   display.fillScreen(WHITE);
-  display.setTextSize(1);
-  display.setTextColor(BLACK);
-  display.setCursor(1,23);
-  display.println("SOLDERING STATION KIT");
-  //display.setFont(&FreeSansBold9pt7b);
+  display.setFont(&FreeSansBold9pt7b);
   display.setTextSize(1);
   display.setTextColor(BLACK);
   display.setCursor(5,15);
   display.println("WAREHOUSE");
+  display.setFont();
+  display.setTextSize(1);
+  display.setTextColor(BLACK);
+  display.setCursor(1,23);
+  display.println("SOLDERING STATION KIT");
+
   display.display();
 
   pinMode(o1Pin, OUTPUT);
@@ -103,11 +105,7 @@ void setup() {
   pinMode(i6Pin, INPUT);
   pinMode(upiPin, INPUT);
   pinMode(dwiPin, INPUT);
-  
- // iterate over the notes of the melody:
- 
-  
-// welcome action
+  // welcome action
   tone(buzzerPIN, 3520, 60);
   digitalWrite(o5Pin, HIGH);
   digitalWrite(o4Pin, HIGH);
@@ -215,8 +213,8 @@ void loop() {
   i4State = digitalRead(i4Pin);
   i5State = digitalRead(i5Pin);
   i6State = digitalRead(i6Pin);
-  upState = analogRead(A6) < 100 ? 0 : 1;
-  dwState = analogRead(A7) < 100 ? 0 : 1;
+  upState = analogRead(A7) < 100 ? 0 : 1;
+  dwState = analogRead(A6) < 100 ? 0 : 1;
   
   // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
   if (i1State == HIGH) {                                   // turn Output 1:
@@ -233,13 +231,11 @@ void loop() {
   display.setCursor(20,0);
   display.println("T-115");
   display.display();
-  
     digitalWrite(o1Pin, HIGH);
     digitalWrite(o2Pin, LOW);
     digitalWrite(o3Pin, LOW);
     digitalWrite(o4Pin, LOW);
     digitalWrite(o5Pin, LOW);
-
 if (buzzerFlag1 == false ) {
      tone(buzzerPIN, 3520, 60);
     delay(50);
@@ -256,8 +252,8 @@ if (buzzerFlag1 == false ) {
   display.drawLine(5,0,5,27, WHITE);
   display.drawLine(5,27,122,27, WHITE);
   display.drawLine(122,0,122,27, WHITE);
-  display.drawLine(5,27,0,32, WHITE);      //
-  display.drawLine(122,27,127,32, WHITE);  //
+  display.drawLine(5,27,0,32, WHITE);      
+  display.drawLine(122,27,127,32, WHITE);  
   display.setTextSize(3);
   display.setTextColor(WHITE);
   display.setCursor(20,0);
@@ -266,14 +262,13 @@ if (buzzerFlag1 == false ) {
   display.fillRect(45,27,37,5,WHITE);
   display.fillTriangle(80,32,85,27,80,27, WHITE);
   display.display();
- 
     digitalWrite(o1Pin, LOW);
     digitalWrite(o2Pin, HIGH);
     digitalWrite(o3Pin, LOW);
     digitalWrite(o4Pin, LOW);
     digitalWrite(o5Pin, LOW);
 if (buzzerFlag2 == false ) {
-     tone(buzzerPIN, 3520, 60);
+    tone(buzzerPIN, 3520, 60);
     delay(50);
     noTone(buzzerPIN);
     buzzerFlag1 = false;
@@ -288,8 +283,8 @@ if (buzzerFlag2 == false ) {
   display.drawLine(5,0,5,27, WHITE);
   display.drawLine(5,27,122,27, WHITE);
   display.drawLine(122,0,122,27, WHITE);
-  display.drawLine(122,27,127,32, WHITE);  //
-  display.drawLine(85,27,80,32, WHITE);    //
+  display.drawLine(122,27,127,32, WHITE);  
+  display.drawLine(85,27,80,32, WHITE);    
   display.setTextSize(3);
   display.setTextColor(WHITE);
   display.setCursor(30,0);
@@ -298,14 +293,13 @@ if (buzzerFlag2 == false ) {
   display.fillRect(5,27,35,5,WHITE);
   display.fillTriangle(40,32,40,27,45,32, WHITE);
   display.display();  
- 
     digitalWrite(o1Pin, LOW);
     digitalWrite(o2Pin, LOW);
     digitalWrite(o3Pin, HIGH);
     digitalWrite(o4Pin, LOW);
     digitalWrite(o5Pin, LOW);
 if (buzzerFlag3 == false ) {
-     tone(buzzerPIN, 3520, 60);
+    tone(buzzerPIN, 3520, 60);
     delay(50);
     noTone(buzzerPIN);
     buzzerFlag1 = false;
@@ -320,8 +314,8 @@ if (buzzerFlag3 == false ) {
   display.drawLine(5,0,5,27, WHITE);
   display.drawLine(5,27,122,27, WHITE);
   display.drawLine(122,0,122,27, WHITE);
-  display.drawLine(5,27,0,32, WHITE);      //
-  display.drawLine(45,32,40,27, WHITE);    //
+  display.drawLine(5,27,0,32, WHITE);      
+  display.drawLine(45,32,40,27, WHITE);    
   display.fillTriangle(122,32,127,32,122,27, WHITE);
   display.fillRect(85,27,37,5,WHITE);
   display.fillTriangle(80,32,85,27,85,32, WHITE);
@@ -334,14 +328,13 @@ if (buzzerFlag3 == false ) {
   display.setCursor(40,18);
   display.println("STATION");
   display.display();
- 
     digitalWrite(o1Pin, LOW);
     digitalWrite(o2Pin, LOW);
     digitalWrite(o3Pin, LOW);
     digitalWrite(o4Pin, HIGH);
     digitalWrite(o5Pin, LOW);
 if (buzzerFlag4 == false ) {
-     tone(buzzerPIN, 3520, 60);
+    tone(buzzerPIN, 3520, 60);
     delay(50);
     noTone(buzzerPIN);
     buzzerFlag1 = false;
@@ -355,9 +348,9 @@ if (buzzerFlag4 == false ) {
   display.clearDisplay();
   display.drawLine(5,0,5,27, WHITE);
   display.drawLine(5,27,122,27, WHITE);
-  display.drawLine(5,27,0,32, WHITE);      //
-  display.drawLine(45,32,40,27, WHITE);    //
-  display.drawLine(85,27,80,32, WHITE);    //
+  display.drawLine(5,27,0,32, WHITE);      
+  display.drawLine(45,32,40,27, WHITE);    
+  display.drawLine(85,27,80,32, WHITE);    
   display.fillTriangle(122,27,127,32,127,27, WHITE);
   display.fillRect(122,0,7,27,WHITE);
   display.setTextSize(2);
@@ -369,14 +362,13 @@ if (buzzerFlag4 == false ) {
   display.setCursor(33,18);
   display.println("PRE-HEATER");
   display.display();
-  
     digitalWrite(o1Pin, LOW);
     digitalWrite(o2Pin, LOW);
     digitalWrite(o3Pin, LOW);
     digitalWrite(o4Pin, LOW);
     digitalWrite(o5Pin, HIGH);
 if (buzzerFlag5 == false ) {
-     tone(buzzerPIN, 3520, 60);
+    tone(buzzerPIN, 3520, 60);
     delay(50);
     noTone(buzzerPIN);
     buzzerFlag1 = false;
@@ -387,7 +379,7 @@ if (buzzerFlag5 == false ) {
     }
   } 
  
-  if (state6 == 0 && i6State == HIGH) {      // turn ON Output 6:
+  if (state6 == 0 && i6State == HIGH) {                       // turn ON Output 6:
     state6 = 1;
     Loadstate6=!Loadstate6;
   }
@@ -403,12 +395,11 @@ if (buzzerFlag5 == false ) {
         tone(buzzerPIN, 3520, 60);
         delay(50);
         noTone(buzzerPIN);
-    buzzerFlag = false;
-    buzzerFlag6 = true;
-
+        buzzerFlag = false;
+        buzzerFlag6 = true;
+        }
     }
-   }
-   else{
+   else{                                                       // turn OFF Output 6:
     display.fillRoundRect(107,20,5,5,4, BLACK);
     display.display();
     digitalWrite(o6Pin, LOW); 
@@ -418,10 +409,10 @@ if (buzzerFlag5 == false ) {
         tone(buzzerPIN, 4186, 20);
         delay(50);
         noTone(buzzerPIN);
-    buzzerFlag6 = false;
-    buzzerFlag = true;
-    }         // turn OFF Output 6:
-   }
+        buzzerFlag6 = false;
+        buzzerFlag = true;
+        }         
+    }
 
    if (upState == HIGH) {                                       // turn up                                         
     digitalWrite(upoPin, HIGH);
@@ -452,7 +443,7 @@ if (buzzerFlag5 == false ) {
         }
  
   
-  if (dwState == HIGH) {    
+  if (dwState == HIGH) {                                 // turn down
     digitalWrite(dwoPin, HIGH);
     delay(5);
     digitalWrite(upoPin, HIGH);
@@ -462,7 +453,7 @@ if (buzzerFlag5 == false ) {
     digitalWrite(upoPin, LOW);  
     //tone(buzzerPIN, 4186, 20);
     delay(10);
-    //noTone(buzzerPIN);                            // turn down
+    //noTone(buzzerPIN);                            
         display.fillTriangle(114,21,117,25,120,21, WHITE);
         display.fillTriangle(114,13,117,17,120,13, WHITE);
         display.fillTriangle(114,5,117,9,120,5, WHITE);
@@ -470,7 +461,6 @@ if (buzzerFlag5 == false ) {
         display.fillTriangle(7,13,10,17,13,13, WHITE);
         display.fillTriangle(7,5,10,9,13,5, WHITE);
         display.display();
-        //display.clearDisplay();
  } else {
         display.fillTriangle(114,21,117,25,120,21, BLACK);
         display.fillTriangle(114,13,117,17,120,13, BLACK);
@@ -482,8 +472,8 @@ if (buzzerFlag5 == false ) {
  }
 
  lock:
-  upState = analogRead(A6) < 100 ? 0 : 1;
-  dwState = analogRead(A7) < 100 ? 0 : 1;
+  upState = analogRead(A7) < 100 ? 0 : 1;
+  dwState = analogRead(A6) < 100 ? 0 : 1;
 
 if (state == 0 && upState == HIGH && dwState == HIGH) {  
     digitalWrite(o1Pin, LOW);
@@ -494,16 +484,14 @@ if (state == 0 && upState == HIGH && dwState == HIGH) {
     digitalWrite(o6Pin, LOW);
     digitalWrite(upoPin, LOW);
     digitalWrite(dwoPin, LOW);
- //   digitalWrite(stbyPin, HIGH);
     s = 0;
     m = 0;
     state = 1;
     Loadstate=!Loadstate;
-    
   }
   if (state == 1 && upState == LOW && dwState == LOW) {  
     state = 0;
-        // Welcome display 
+  // Welcome display 
   display.fillScreen(BLACK);
   display.drawLine(5,27,122,27, WHITE);
   display.drawLine(122,0,122,27, WHITE);
@@ -516,7 +504,6 @@ if (state == 0 && upState == HIGH && dwState == HIGH) {
   display.setTextColor(WHITE);
   display.setCursor(20,8);
   display.println("Ready to select");
-  
   }
    if (Loadstate==HIGH){
      //clock
@@ -541,28 +528,23 @@ if (state == 0 && upState == HIGH && dwState == HIGH) {
   digitalWrite(stbyPin, HIGH);
  }
   s = s + 0.50;
+  display.fillRoundRect(5,12,50,18,1, WHITE);
+  display.setTextSize(2);
+  display.setTextColor(BLACK);
+  display.setCursor(7,14);
+  display.println("LOCK!");
   display.setTextSize(1);
   display.setTextColor(WHITE);
-  display.setCursor(15,0);
-  display.println("      LOCK !    ");
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(2,15);
+  display.setCursor(5,0);
   display.println("SW:v1.2.1");
   display.setTextSize(1);
   display.setTextColor(WHITE);
-  display.setCursor(2,25);
+  display.setCursor(68,0);
   display.println("HW:v1.4.0");
-  //display.setTextSize(2);
-  //display.setTextColor(BLACK);
-  //display.setCursor(60, 15);
-  //display.print(m);
-  //display.print(":");
-  //display.print(s);
   delay(970);
   display.setTextSize(2);
   display.setTextColor(WHITE);
-  display.setCursor(63, 17);
+  display.setCursor(65, 14);
   display.print(m);
   display.print(":");
   display.print(s);
@@ -581,9 +563,15 @@ if (state == 0 && upState == HIGH && dwState == HIGH) {
     if (buzzerFlag8 == false ) {
     buzzerFlag9 = false;
     buzzerFlag8 = true;
+    display.clearDisplay();
     display.display();
     digitalWrite(stbyPin, LOW);
-    delay(2000);
+        tone(buzzerPIN, 4186, 20);
+        delay(100);
+        tone(buzzerPIN, 4186, 20);
+        delay(50);
+        noTone(buzzerPIN);
+    delay(1000);
     }        
    }
 }//endloop
