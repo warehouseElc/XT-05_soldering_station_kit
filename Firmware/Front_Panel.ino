@@ -1,4 +1,4 @@
-https://wokwi.com/projects/350487167572640339
+//https://wokwi.com/projects/350487167572640339
 
 #include <SPI.h>
 #include <Wire.h>
@@ -204,7 +204,7 @@ void setup() {
 }
 
 void loop() {
-  // read the state of the pushbutton value: display.fillScreen(WHITE);
+  // read the state of the pushbutton value: 
   i1State = digitalRead(i1Pin);
   i2State = digitalRead(i2Pin);
   i3State = digitalRead(i3Pin);
