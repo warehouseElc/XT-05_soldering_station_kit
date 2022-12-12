@@ -5,7 +5,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Fonts/FreeSansBold9pt7b.h>
-#include <Fonts/FreeMono12pt7b.h>
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
@@ -417,7 +416,6 @@ if (buzzerFlag5 == false ) {
     digitalWrite(dwoPin, HIGH);
     delay(5);
     digitalWrite(upoPin, LOW);
-    delay(5);
     digitalWrite(dwoPin, LOW);
     //tone(buzzerPIN, 4186, 20);
     delay(10);
@@ -446,7 +444,6 @@ if (buzzerFlag5 == false ) {
     digitalWrite(upoPin, HIGH);
     delay(5);
     digitalWrite(dwoPin, LOW);
-    delay(5);
     digitalWrite(upoPin, LOW);  
     //tone(buzzerPIN, 4186, 20);
     delay(10);
