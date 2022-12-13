@@ -12,32 +12,33 @@ this controller is still upgradable, but i dont have enough time to made this fu
 </p> 
 
 # Main Unit :
-  This unit controlled by atmega328p mount at FrontPanel board, it use I/O to select which controller you wanna uses and activated independent  
-  optocoupler for each controller and each signal.
-    * ACC remote to turn on acc like fume extractor or etc by push a software latch button.
-    * it's also come with one encoder and 2 button to operate the controller.
-    * the CTRL switch operated directly to main controller power.
-    * when push up & down button at the same time it will lock the I/O.
-    * after 2 hour at Lock mode the unit goes to stby mode by switching of main 5v & 12v power as indicator STBY turn green.
-    * baypass mode working just for Hotair station.
-    * an ESD plug was separated by main groung / AC earth socket.
+  * This unit controlled by atmega328p mount at FrontPanel board, it use I/O to select which controller you wanna uses and activated independent optocoupler for each controller and each signal.
+  * ACC remote to turn on acc like fume extractor or etc by push a software latch button.
+  * it's also come with one encoder and 2 button to operate the controller.
+  * the CTRL switch operated directly to main controller power.
+  * when push up & down button at the same time it will lock the I/O.
+  * after 2 hour at Lock mode the unit goes to stby mode by switching of main 5v & 12v power as indicator STBY turn green
+  * baypass mode working just for Hotair station.
+  * an ESD plug was separated by main groung / AC earth socket.
     
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/complete_assy.jpg" width="720" title="hover text">
 </p> 
 
 <p align="center">
-  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/display_assy.jpg.jpg" width="480" title="hover text">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/display_assy.jpg" width="480" title="hover text">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/main_button_assy.jpg" width="480" alt="accessibility text">
 </p> 
 
 
-# this controller contains :
+# This controller contains :
 
-1.Nano solder NT-115.
+1. Nano solder NT-115.
    this controller use stm32f030f4 work at max 18v supply but the tip it self consume just 15w at 9v.
    i used 12v supply for this and calibrated it for chinese tip. if you want to use jbc original or diffrent vendor you just need re-calibrated it.
+     
      Feature : 
+     
        * can be use with any c-115 handle or tips.
        * sleep seat.
        * stable & fast respond time.
@@ -46,7 +47,9 @@ this controller is still upgradable, but i dont have enough time to made this fu
        * voltage supply, 3v3 & temp measurment.
        * calibrated menu.
        * error hi/lo-Temp, hi/lo-volt detection.
+       
      Known Bug :
+       
        * No buzzer/bepper
        * input supply must stable & avoid get voltage spike.
        * using medium-high cost & almost at rare status by now of component.
@@ -55,18 +58,27 @@ this controller is still upgradable, but i dont have enough time to made this fu
        * encoder issue with some incompatible devices.
        * open 3v coming from the seat need more attention. "dont swap with Microsolder seat" 
        
-2.Micro solder T-210.
+2. Micro solder T-210.
    This controller still use Chinese GVM stc32. in future we can adapt NT-115 controller work for c-210 tip, but !!!
    i need more time to fix a bug and test it.
+       
+      Feature :
+       
+        * do i need to explain it ? i dont thing so.
+        
    
 3. iron solder hakko 9series.
     This controller use atmega328p (promini), and run at DC 24v very smoothly.
+      
       Feature :
+      
         * Tune & Calibrated Menu
         * error screen.
         * easy to use and interactive display.
         * isolated to main power.
+        
       Known Bug :
+      
         * hard to calibrate cause by slow reading.
         * auto sleep sometimes not working.
         * noisy at heater when start up.
@@ -74,13 +86,17 @@ this controller is still upgradable, but i dont have enough time to made this fu
         
 4. Hotair 858D.
     This controller use atmega328p (promini), with 700w 220v heater element.
+      
       Feature :
+      
         * Tune & Calibrated Menu
         * error screen.
         * easy to use and interactive display.
         * add bypass mode to active cool air.
         * isolated to main power
+        
       Known Bug :
+      
         * hard to calibrate cause by slow reading.
         * seat sleep is lag by 3second.
         * sometimes display get stuck.
@@ -89,19 +105,23 @@ this controller is still upgradable, but i dont have enough time to made this fu
 5. Pre-heater.
    This controller use atmega328p (promini), with 200w/400w 220v heater element.
    (based on Hotair station firmware).
+   
       Feature :
+      
         * Tune & Calibrated Menu
         * error screen.
         * easy to use and interactive display.
         * isolated to main power
+
       Known Bug :
+      
         * hard to calibrate cause by slow reading.
         * very slow respond.
         * no preset temp.
 
 
 <p align="center">
-  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/button_and_display.jpg.jpg" width="720" title="hover text">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/button_and_display.jpg" width="720" title="hover text">
 </p> 
 
 # Progress on 2023 :
@@ -115,8 +135,8 @@ this controller is still upgradable, but i dont have enough time to made this fu
 # ChangeLog : 
 
   (2022)
-  Firmware 9series v.2.1 Hotair v.1.5 PreHeater v.1.0 (Board Version v4.0) 
-  Nanosolder v.1.2 (Board Version v.1.1) F.panel v.1.2.1 (Board Version v.1.4.0) 
+  Firmware 9series v.2.1 Hotair v.1.5 PreHeater v.1.0 (Board v4.0) Nanosolder v.1.2 (Board v.1.1) F.panel v.1.2.1 (Board v.1.4.0) 
+  
     * Put all controller in a 1u case.
     * add two extra button as simulated encoder output @10ms using FP_MCU.
     * using 2 PSU, 24v for iron,hotair,Preheater, 12v for nano & micro.
@@ -128,6 +148,7 @@ this controller is still upgradable, but i dont have enough time to made this fu
    
   (2021)
   Firmware 9series v.2.1 Hotair v.1.5 (Board Version 4.0) 
+  
     * change component to SMD as possible
     * SH1106 Oled 1.3" Used For Display
     * Removing class PIDscreen for Hot Air to free some memory
