@@ -2,8 +2,13 @@
 5 in 1 Soldering Station "not unisolder"
 
 This project come for DIYers to make a good and reliable soldering station kit.
+it works as independent controller, 
+that's mean you can't swap the tip each other cause it doesn't have a tip preset.
+this come to much complexity for cable management, because i design it tobe fully modular.
+so no solder required to disassamble whole unit.
 all firmware not originaly made by me, but it's a lot of effort to moded and bugfixes.
-if you want to copy or modified any of this resource, please let me know the result of your work.
+if you want to copy or modified any of this resource, 
+please let me know the result of your work.
 this controller is still upgradable, but i dont have enough time to made this full of feature.
 
 <p align="center">
@@ -127,7 +132,7 @@ this controller is still upgradable, but i dont have enough time to made this fu
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/PCB Block.jpg" width="720" title="hover text">
 </p> 
 <p align="center">
-  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_sttation_kit/Case .jpg" width="720" title="hover text">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/Case .jpg" width="720" title="hover text">
 </p> 
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/Relay board.jpg" width="720" title="hover text">
