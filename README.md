@@ -1,8 +1,8 @@
 # XT-05 Soldering station kit
-5 in 1 Soldering Station based on atmega328p
+5 in 1 Soldering Station "not unisolder"
 
 This project come for DIYers to make a good and reliable soldering station kit.
-all firmware not originally made by me, but it's a lot of effort to mod and bugfixes.
+all firmware not originaly made by me, but it's a lot of effort to moded and bugfixes.
 if you want to copy or modified any of this resource, please let me know the result of your work.
 this controller is still upgradable, but i dont have enough time to made this full of feature.
 
@@ -17,7 +17,7 @@ this controller is still upgradable, but i dont have enough time to made this fu
   * it's also come with one encoder and 2 button to operate the controller.
   * the CTRL switch operated directly to main controller power.
   * when push up & down button at the same time it will lock the I/O.
-  * after 2 hour at Lock mode the unit goes to stby mode by switching of main 5v & 12v power as indicator STBY turn green
+  * after 2 hour at Lock mode the unit goes to stby mode by switch off the relay main 5v & 12v , as indicator STBY turn green.
   * baypass mode working just for Hotair station.
   * an ESD plug was separated by main groung / AC earth socket.
     
@@ -119,9 +119,18 @@ this controller is still upgradable, but i dont have enough time to made this fu
         * very slow respond.
         * no preset temp.
 
-
+# Technical Image.
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/button_and_display.jpg" width="720" title="hover text">
+</p> 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/PCB Block.jpg" width="720" title="hover text">
+</p> 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_sttation_kit/Case .jpg" width="720" title="hover text">
+</p> 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/Relay board.jpg" width="720" title="hover text">
 </p> 
 
 # Progress on 2023 :
