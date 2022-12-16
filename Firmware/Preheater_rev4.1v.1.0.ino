@@ -1,7 +1,7 @@
 // Pre-Heater Reflow Plate 200w controller modded by Warehouse_elc
 // Released Aug 26, 2022
 // Firmware Version 1.0 (atMega328p 5v 16mhz)
-// Board Version 4.1
+// Board Version 4.0
 // Based from https://www.hackster.io/makerbr555/diy-smd-rework-station-28b6f5
 
 #include <avr/io.h>
