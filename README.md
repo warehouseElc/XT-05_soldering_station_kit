@@ -1,5 +1,5 @@
 # XT-05 Soldering station kit
-5 in 1 Soldering Station "not unisolder"
+5 in 1 Soldering Rework Station "NOT Unisolder"
 
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/main_unit.jpg" width="720" title="hover text">
@@ -7,10 +7,10 @@
 
 This project come for DIYers to make a good and reliable soldering station kit.
 it works as independent controller, 
-that's mean you can't swap the tip each other cause it doesn't have a tip preset.
-this come to much complexity for cable management, because i design it tobe fully modular.
-so no solder required to disassamble whole unit.
-all firmware not originaly made by me, but it's a lot of effort to moded and bugfixes.
+that's mean you can't swap the tip each other like unisolder cause it doesn't have a tip preset.
+this come to much complexity for cable management, since i design it to be fully modular.
+so... no solder required to disassamble whole unit.
+all firmware not originaly made by me, but it's a lot of effort to modded and bugfixes.
 if you want to copy or modified any of this resource, 
 please let me know the result of your work.
 this controller is still upgradable, but i dont have enough time to made this full of feature.
