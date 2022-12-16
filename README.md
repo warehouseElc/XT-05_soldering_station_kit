@@ -1,6 +1,10 @@
 # XT-05 Soldering station kit
 5 in 1 Soldering Station "not unisolder"
 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/20221215_154741.jpg" width="720" title="hover text">
+</p> 
+
 This project come for DIYers to make a good and reliable soldering station kit.
 it works as independent controller, 
 that's mean you can't swap the tip each other cause it doesn't have a tip preset.
@@ -14,6 +18,7 @@ this controller is still upgradable, but i dont have enough time to made this fu
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/unit_working.jpg" width="480" title="hover text">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/unit_off.jpg" width="480" alt="accessibility text">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/20221215_154710.jpg" width="720" title="hover text">
 </p> 
 
 # Main Unit :
@@ -136,6 +141,9 @@ this controller is still upgradable, but i dont have enough time to made this fu
 </p> 
 <p align="center">
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/Relay board.jpg" width="720" title="hover text">
+</p> 
+<p align="center">
+  <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/20221215_154850.jpg" width="720" title="hover text">
 </p> 
 
 # Progress on 2023 :
