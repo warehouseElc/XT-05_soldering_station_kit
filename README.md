@@ -146,6 +146,14 @@ this controller is still upgradable, but i dont have enough time to made this fu
   <img src="https://github.com/warehouseElc/Soldering-station-atmega328p-/blob/main/Documentation/XT-05_soldering_station_kit/ex_box.jpg" width="720" title="hover text">
 </p> 
 
+# Test Method :
+  * it was 2 years testing by daily workflow until now no magic smoke no fire and no overheat.
+  * all controller was test individual function without problem.
+  * under heavy load still no problem.
+  * unstable main VAC doesn't cause any issue.
+  * working almost at 30c room temp no aircond everyday use.
+  * standby more than 5 hour everyday.
+
 # Progress on 2023 :
   * get some data by measure at maximum load
   * testing c210 on nano controller.
