@@ -1707,7 +1707,140 @@ SCREEN* tuneSCREEN::menu_long(void) {
 }
 
 //---------------------------------------- class pidSCREEN [tune the PID coefficients] -------------------------
+class pidSCREEN : public SCREEN {
+	public:
+		pidSCREEN(HOTGUN* HG, ENCODER* ENC) {
+			pHG 	= HG;
+			pEnc  	= ENC;
+		}
+		virtual void    init(void);
+		virtual SCREEN* menu(void);
+		virtual SCREEN* menu_long(void);
+		virtual SCREEN* show(void);
+		virtual void    rotaryValue(int16_t value);
+	private:
+		void     	showCfgInfo(void);                 						// show the main config information: Temp set, fan speed and PID coefficients
+		HOTGUN*		pHG;                             						// Pointer to the IRON instance
+		ENCODER* 	pEnc;                              						// Pointer to the rotary encoder instance
+		uint8_t     mode;                              						// Which parameter to tune [0-5]: select element, Kp, Ki, Kd, temp, speed
+		uint32_t 	update_screen;                     						// Time in ms when to print thee info
+		int      	temp_set;
+		const uint16_t period = 1100;
+};
 
+void pidSCREEN::init(void) {
+	temp_set = pHG->getTemp();
+	mode = 0;                                     							// select the element from the list
+	pEnc->reset(1, 1, 5, 1, 1, true);             							// 1 - Kp, 2 - Ki, 3 - Kd, 4 - temp, 5 - fan
+	showCfgInfo();
+	Serial.println("");
+}
+
+void pidSCREEN::rotaryValue(int16_t value) {
+	if (mode == 0) {                              							// select element from the menu
+		showCfgInfo();
+		switch (value) {
+			case 1:
+				Serial.println("Kp");
+				break;
+			case 2:
+				Serial.println("Ki");
+				break;
+			case 4:
+				Serial.println(F("Temp"));
+				break;
+			case 5:
+				Serial.println(F("Fan"));
+                break;
+			case 3:
+			default:
+				Serial.println("Kd");
+			break;
+		}
+	} else {
+		switch (mode) {
+			case 1:
+				Serial.print(F("Kp = "));
+				pHG->changePID(mode, value);
+				break;
+			case 2:
+				Serial.print(F("Ki = "));
+				pHG->changePID(mode, value);
+				break;
+			case 4:
+				Serial.print(F("Temp = "));
+				temp_set = value;
+				pHG->setTemp(value);
+				break;
+			case 5:
+				Serial.print(F("Fan Speed = "));
+				pHG->setFanSpeed(value);
+				break;
+			case 3:
+			default:
+				Serial.print(F("Kd = "));
+				pHG->changePID(mode, value);
+				break;
+		}
+		Serial.println(value);
+	}
+}
+
+SCREEN* pidSCREEN::show(void) {
+	if (millis() < update_screen) return this;
+	update_screen = millis() + period;
+	if (pHG->isOn()) {
+		char buff[80];
+		int		 temp   = pHG->getCurrTemp();
+		uint8_t	 pwr 	= pHG->powerAverage();
+		uint8_t  fs		= pHG->getFanSpeed();
+		fs = map(fs, 0, 255, 0, 100);
+		sprintf(buff, "%3d: power = %3d%c, fan = %3d;", temp_set - temp, pwr, '%', fs);
+		Serial.println(buff);
+	}
+	return this;
+}
+SCREEN* pidSCREEN::menu(void) {                 							// The encoder button pressed
+	if (mode == 0) {                              							// select upper or lower temperature limit
+		mode = pEnc->read();
+		if (mode > 0 && mode < 4) {
+			int k = pHG->changePID(mode, -1);
+			pEnc->reset(k, 0, 10000, 1, 1);
+		} else if (mode == 4) {
+			pEnc->reset(temp_set, 0, 970, 1, 1);
+		} else {
+			pEnc->reset(pHG->getFanSpeed(), 0, 250, 5, 5);
+		}
+	} else {    
+		mode = 0;
+		pEnc->reset(1, 1, 5, 1, 1, true);           						// 1 - Kp, 2 - Ki, 3 - Kd, 4 - temp, 5 - fan speed
+	}
+	return this;
+}
+
+SCREEN* pidSCREEN::menu_long(void) {
+	bool on = pHG->isOn();
+	pHG->switchPower(!on);
+	if (on)
+		Serial.println(F("The air gun is OFF"));
+	else
+		Serial.println(F("The air gun is ON"));
+  return this;
+}
+
+void pidSCREEN::showCfgInfo(void) {
+	Serial.print(F("Temp set: "));
+	Serial.print(temp_set, DEC);
+	Serial.print(F(", fan speed = "));
+	Serial.print(pHG->getFanSpeed());
+	Serial.print(F(", PID: ["));
+	for (byte i = 1; i < 4; ++i) {
+		int k = pHG->changePID(i, -1);
+		Serial.print(k, DEC);
+		if (i < 3) Serial.print(", ");
+	}
+	Serial.print("]; ");
+}
 
 //=========================================================================================================
 HOTGUN    hg(TEMP_GUN_PIN, HOT_GUN_PIN);
